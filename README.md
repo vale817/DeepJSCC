@@ -74,6 +74,54 @@ Test set:     10,000 CIFAR-10 test images
 Image size:   32 x 32 RGB
 ```
 
+## Results
+
+The following result is obtained on CIFAR-10 with the original DeepJSCC CNN architecture.
+
+```text
+Dataset: CIFAR-10
+Channel: AWGN
+Bandwidth ratio: k/n = 1/12
+Training SNR: 7 dB
+Training steps: 600,000
+Evaluation repeats: 10
+```
+
+![CIFAR-10 AWGN result](assets/cifar10_awgn_kn_1_12_snr7_600k.png)
+
+This curve shows the graceful degradation behavior of DeepJSCC: the reconstruction quality improves smoothly as the test SNR increases, without the cliff effect commonly observed in digital separated source-channel coding systems.
+
+| Test SNR (dB) | PSNR (dB) |
+|---:|---:|
+| 1  | 19.53 |
+| 4  | 23.76 |
+| 7  | 26.07 |
+| 10 | 27.19 |
+| 13 | 27.79 |
+| 16 | 28.11 |
+| 19 | 28.28 |
+| 22 | 28.37 |
+| 25 | 28.41 |
+
+## Pretrained Checkpoint
+
+The trained checkpoint is provided in the GitHub Releases page:
+
+- Model: DeepJSCC CNN baseline
+- Dataset: CIFAR-10
+- Channel: AWGN
+- Bandwidth ratio: `k/n = 1/12`
+- Training SNR: `7 dB`
+- Training steps: `600,000`
+
+Checkpoint:
+
+```text
+checkpoint-600000.pt
+```
+
+Release: https://github.com/vale817/DeepJSCC/releases
+
 ## Training
 
 Example: train an AWGN model with `k/n = 1/12` and training SNR = 7 dB.
@@ -126,5 +174,4 @@ python3 -m unittest discover -s tests -v
 ## Notes
 
 This implementation focuses on the CIFAR-10 DeepJSCC baseline. It does not include JPEG/JPEG2000, LDPC, or modulation baselines from the original paper.
-
 Since the original implementation is not publicly available, minor implementation details such as initialization, padding, stopping criteria, and optimizer defaults may differ.
