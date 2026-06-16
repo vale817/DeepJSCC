@@ -126,3 +126,5 @@ python3 -m unittest discover -s tests -v
 ## Notes
 
 This implementation focuses on the CIFAR-10 DeepJSCC baseline. It does not include JPEG/JPEG2000, LDPC, or modulation baselines from the original paper.
+
+Since the original implementation is not publicly available, minor implementation details such as initialization, padding, stopping criteria, and optimizer defaults may differ.
