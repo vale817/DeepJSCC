@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepjscc-reproduction"
+version = "0.1.0"
+description = "PyTorch reproduction scaffold for the original DeepJSCC wireless image transmission paper."
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.2",
+  "torchvision>=0.17",
+  "numpy>=1.26",
+  "matplotlib>=3.8",
+]
+
+[tool.setuptools]
+packages = ["deepjscc"]
