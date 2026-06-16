@@ -103,24 +103,45 @@ This curve shows the graceful degradation behavior of DeepJSCC: the reconstructi
 | 22 | 28.37 |
 | 25 | 28.41 |
 
-## Pretrained Checkpoint
+## Pretrained Checkpoints
 
-The trained checkpoint is provided in the GitHub Releases page:
+All trained checkpoints are provided in the GitHub Releases page as `runs.tar.gz`.
 
-- Model: DeepJSCC CNN baseline
-- Dataset: CIFAR-10
-- Channel: AWGN
-- Bandwidth ratio: `k/n = 1/12`
-- Training SNR: `7 dB`
-- Training steps: `600,000`
-
-Checkpoint:
+The archive contains intermediate checkpoints and the final 600k-step checkpoint:
 
 ```text
+checkpoint-50000.pt
+checkpoint-100000.pt
+checkpoint-150000.pt
+checkpoint-200000.pt
+checkpoint-250000.pt
+checkpoint-300000.pt
+checkpoint-350000.pt
+checkpoint-400000.pt
+checkpoint-450000.pt
+checkpoint-500000.pt
+checkpoint-550000.pt
 checkpoint-600000.pt
+config.json
 ```
 
-Release: https://github.com/vale817/DeepJSCC/releases
+After downloading, extract it in the repository root:
+
+```bash
+tar -xzf runs.tar.gz
+```
+
+The final checkpoint path will be:
+
+```text
+runs/cifar10_awgn_ratio-0.083333_snr-7_seed-0/checkpoint-600000.pt
+```
+
+Release:
+
+```text
+https://github.com/vale817/DeepJSCC/releases/tag/v0.1-cifar10-awgn
+```
 
 ## Training
 
